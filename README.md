@@ -75,8 +75,8 @@ List of methods:
 | `info` | `string` | Show info in console
 
 ## To do
-- Add debugger method where you can show messages, error. Now you must open console
-- Add timers methods (make time measurement of exacuting scripts )
-- Add method setConfig which you can set if message shoud show in console or in bar
-- Add some aliases to different libraries (like fps graph etc)
-- Add method to log and write in file all messages
+- Add debugger method where you can show messages, errors etc... Now you must open console.
+- Add timers methods (make time measurement of exacuting scripts ).
+- Add method setConfig which you can set if message shoud show in console or in bar.
+- Add some aliases to different libraries (like fps graph etc).
+- Add method to log and write in file all messages.
