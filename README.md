@@ -54,7 +54,7 @@ Example:
   DEBUGGER.addMethod("log", function(Vars){
   
 		this.print(Vars.moduleNameCall, Vars.default, "log");
-		return true;
+		return true; // all method must return bool var
 		
 });
 
