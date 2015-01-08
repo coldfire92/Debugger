@@ -63,7 +63,7 @@ DEBUGGER = (function(){
 			/*-----  Run method  (test passed arguments) ------*/
 			
 			if(testDebuggerMethod(method, methods[method].requiredVars, Vars)) {
-				
+
 
 				return isMethotReturnBool(method, methods[method].method.call(utilsMethods, Vars));	
 
