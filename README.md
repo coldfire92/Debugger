@@ -44,7 +44,7 @@ Arguments:
 |--------|---------|------------
 | `methodName` | `string` | Method name
 | `content` | `function` | Method, argument is 'vars' which are passed in call method
-| `requiredvars` | `array` | All required vars which must contain 'vars' object
+| `requiredvars` | `array` | All required vars which must contain 'vars' object, not required when you pass only one var
 
 If you dont pass object in call function, debugger create object with 'default' property. Futhermore add 'moduleNameCall' property- moduleName in call method.
 
