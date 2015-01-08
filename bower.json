@@ -1,6 +1,7 @@
 {
   "name": "debugger",
   "version": "0.0.0",
+  "main": "dist/debbuger.js",
   "authors": [
     "Michal <spam@michal-pawelczyk.com>"
   ],
