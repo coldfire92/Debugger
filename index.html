@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Debugger</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script src="js/debugger.js"></script>		
+<script src="js/methods/deb.messages.js"></script>	
+ -->
+
+<!-- 
+	Concat
+-->
+
+<script src="dist/debugger.js"></script>
+
+
+<script type="text/javascript">
+	
+if(typeof DEBUGGER == "undefined") DEBUGGER = {call: function(){}};
+
+window.onload = function(){
+
+
+	DEBUGGER.call("info","Some message");
+	DEBUGGER.call("warn","Some message");
+	DEBUGGER.call("error","Some message");
+	DEBUGGER.call("log","Some message");
+
+
+	DEBUGGER.showMethods();
+
+};
+
+</script>
+
+</body>
+</html>
