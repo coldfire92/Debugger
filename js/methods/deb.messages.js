@@ -1,17 +1,15 @@
 
-
 /**
  * Log some message
  */
 DEBUGGER.addMethod("log", function(Vars){
 
 
-		this.print(Vars.moduleNameCall, Vars.default, "log");
-		return true;
+	this.print(Vars.moduleNameCall, Vars.default, "log");
+	return true;
 	
 
 });
-
 
 
 /**
@@ -20,8 +18,8 @@ DEBUGGER.addMethod("log", function(Vars){
 DEBUGGER.addMethod("warn", function(Vars){
 
 
-		this.print(Vars.moduleNameCall, Vars.default, "warn");
-		return true;
+	this.print(Vars.moduleNameCall, Vars.default, "warn");
+	return true;
 	
 
 });
@@ -32,8 +30,8 @@ DEBUGGER.addMethod("warn", function(Vars){
 DEBUGGER.addMethod("error", function(Vars){
 
 
-		this.print(Vars.moduleNameCall, Vars.default, "error");
-		return true;
+	this.print(Vars.moduleNameCall, Vars.default, "error");
+	return true;
 	
 
 });
@@ -45,8 +43,8 @@ DEBUGGER.addMethod("error", function(Vars){
 DEBUGGER.addMethod("info", function(Vars){
 
 
-		this.print(Vars.moduleNameCall, Vars.default, "info");
-		return true;
+	this.print(Vars.moduleNameCall, Vars.default, "info");
+	return true;
 	
 
 });
