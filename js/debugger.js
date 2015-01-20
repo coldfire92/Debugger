@@ -9,6 +9,7 @@ DEBUGGER = (function(){
 	/*-----  Vars  ------*/
 	
 	var	methods = {};
+	var	objects = {}; // objects for methods
 
 
 	/*-----  Methods available in this object in additionals methods  ------*/
@@ -35,8 +36,78 @@ DEBUGGER = (function(){
 
 			console[type].call(console, messageConsole);
 
-		}
+		},
 
+
+
+		/**
+		 * Set 'global' object to debugger
+		 * @param {string} key        
+		 * @param {mixed} object     
+		 * @param {string} methodName 
+		 */
+		setObject: function(key, object, methodName){
+
+			methodName = methodName || 'Debugger:setObject';
+
+
+			if(!key){
+				this.print(methodName, "You try set object but you not apply 'key' argument", "warn");
+				return false;
+			}
+
+
+			if(!object){
+				this.print(methodName, "You try set object in "+key+" key but not apply 'object argument'", "warn");
+				return false;
+			}
+
+			objects[key] = object;
+
+			return true;
+
+		},
+
+		/**
+		 * Delete 'global' object for debugger
+		 * @param  {string} key        
+		 * @param  {string} methodName 
+		 * @return {bool}          
+		 */
+		deleteObject: function(key, methodName){
+
+			methodName = methodName || 'Debugger:deleteObject';
+
+			if(!key){
+				this.print(methodName, "You try delete object but you not apply 'key' argument", "warn");
+				return false;
+			}
+
+			delete objects[key];
+
+			return true;
+
+		},
+
+		/**
+		 * Get 'global' object for debugger	
+		 * @param  {string} key      
+		 * @param  {string} methodName 
+		 * @return {mixed} 
+		 */
+		getObject: function(key, methodName){
+
+			methodName = methodName || 'Debugger:getObject';
+
+			if(!objects[key]){
+				this.print(methodName, "It`s not exist object with '"+key+"' key", "warn");
+
+				return null;
+			}
+
+			return objects[key];
+
+		}
 
 	};
 
