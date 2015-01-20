@@ -5,7 +5,7 @@ Simple modular object to debbug code (ex. showing in console, creating logs etc.
 
 Include js combined file.
 ``` html
-  <script src="dist/debugger.js"></script>
+<script src="dist/debugger.js"></script>
 ```
 
 Add code before your js files to avoid error when you don`t include debbuger files in production version.
