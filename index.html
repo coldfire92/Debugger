@@ -9,6 +9,7 @@
 
 <script src="js/debugger.js"></script>		
 <script src="js/methods/deb.Messages.js"></script>	
+<script src="js/methods/deb.Timers.js"></script>	
 
 <!-- 
 	Concat
@@ -30,6 +31,14 @@ window.onload = function(){
 
 	DEBUGGER.showMethods();
 
+	DEBUGGER.run("startTimer","id1");
+
+	setTimeout(function(){
+
+		console.log(DEBUGGER.run("stopTimer","id1"));
+		DEBUGGER.run("stopTimer","id1"); // run not existing timer
+		
+	}, 800);
 
 };
 
