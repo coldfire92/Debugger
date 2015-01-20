@@ -11,12 +11,12 @@ Include js combined file.
 Add code before your js files to avoid error when you don`t include debbuger files in production version.
 
 ``` js
-    if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
+if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
 ```
 
 ## Run debbuger method
 ```js
-  DEBUGGER.run(methodName,vars[,moduleName]);
+DEBUGGER.run(methodName,vars[,moduleName]);
 ```
 Arguments:
 
@@ -28,7 +28,7 @@ Arguments:
 
 Example
 ```js
-  DEBUGGER.run("info","Some message");
+DEBUGGER.run("info","Some message");
 ```
 
 ## Add methods
@@ -36,7 +36,7 @@ Example
 To add your own methods call addMethod on object.
 
 ```js
-  DEBUGGER.addMethod(methodName,content [, requiredvars]);
+DEBUGGER.addMethod(methodName,content [, requiredvars]);
 ```
 Arguments:
 
@@ -51,16 +51,16 @@ If you dont pass object in call function, debugger create object with 'default' 
 Example: 
 
 ```js
-  DEBUGGER.addMethod("log", function(Vars){
+DEBUGGER.addMethod("log", function(Vars){
   
-		this.print(Vars.moduleNameCall, Vars.default, "log");
-		return true; // all method must return bool var
+	this.print(Vars.moduleNameCall, Vars.default, "log");
+	return true; // all method must return bool var
 		
 });
 
  ...
  
- DEBUGGER.run("log","Some message"); // string "Some message" is added to Vars.default property
+DEBUGGER.run("log","Some message"); // string "Some message" is added to Vars.default property
 
 ```
 ## Methods utils
