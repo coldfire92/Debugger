@@ -8,7 +8,7 @@ Include js combined file.
   <script src="dist/debugger.js"></script>
 ```
 
-Add code before your js files to avoid error when you dont include debbuger files in production version.
+Add code before your js files to avoid error when you don`t include debbuger files in production version.
 
 ``` js
     if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
@@ -24,7 +24,7 @@ Arguments:
 |--------|---------|------------
 | `methodName` | `string` | Method name
 | `vars` | `mixed` | Vars which are passed to method
-| `moduleName` | `string` | Module name from you call debugger method- is used to simply know where you call method- ex. method log show in console this property  
+| `moduleName` | `string` | Module name from you call debugger method- is used to simply know where you call method- e.g. method log show in console this property  
 
 Example
 ```js
@@ -63,20 +63,65 @@ Example:
  DEBUGGER.run("log","Some message"); // string "Some message" is added to Vars.default property
 
 ```
+## Methods utils
+In 'this' object you can use utils methods like:
+### this.print()
+Print messages in console, special debug bar or log file.
+```js
+this.print(module, message[, type='log', plain=false]);
+```
+
+| Argument | Type | Default | Description
+|--------|---------|-------|---------
+| `module` | `string` | - |Module name
+| `message` | `string` | - |Show error in console
+| `type` | `string` | `log` |Message type {log,warn,info,error}
+| `plain` | `bool` |  false |Don`t print module name
+
+### this.setObject()
+Save an object for later.
+```js
+this.setObject(key, object[, methodName='debuger:setObject']);
+```
+| Argument | Type | Default | Description
+|--------|---------|-------|---------
+| `key` | `string` | - | Key
+| `object` | `mixed` | - | Object to save
+| `methodName` | `string` | `debuger:setObject` | Message type {log,warn,info,error}
+
+### this.getObject()
+Get previously saved objects.
+```js
+this.getObject(key, [, methodName='debuger:setObject']);
+```
+| Argument | Type | Default | Description
+|--------|---------|-------|---------
+| `key` | `string` | - | Key
+| `methodName` | `string` | `debuger:setObject` | Method name 
+
+### this.deleteObject()
+Delete an saved object.
+```js
+this.deleteObject(key [, methodName='debuger:setObject']);
+```
+| Argument | Type | Default | Description
+|--------|---------|-------|---------
+| `key` | `string` | - | Key
+| `methodName` | `string` | `debuger:deleteObject` | Method name 
 
 ## Available default methods
 List of methods:
 
 | Method | Arguments | Description
-|--------|---------|------------
-| `log` | `string` | Show log in console
+|--------|-------------|-------------
+| `log` | `string` | Show log in console | 
 | `error` | `string` | Show error in console
-| `warm` | `string` | Show warn in console
+| `warn` | `string` | Show warn in console
 | `info` | `string` | Show info in console
-
+| `startTimer` | `string` | Start timer with passed id
+| `stopTimer` | `string` | Stop timer with passed id and return time in ms
 ## To do
 - Add debugger method where you can show messages, errors etc... Now you must open console.
-- Add timers methods (make time measurement of exacuting scripts ).
 - Add method setConfig which you can set if message shoud show in console or in bar.
 - Add some aliases to different libraries (like fps graph etc).
 - Add method to log and write in file all messages.
