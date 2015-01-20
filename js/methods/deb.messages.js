@@ -46,5 +46,4 @@ DEBUGGER.addMethod("info", function(Vars){
 	this.print(Vars.moduleNameCall, Vars.default, "info");
 	return true;
 	
-
 });

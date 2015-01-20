@@ -8,15 +8,15 @@ Include js combined file.
   <script src="dist/debugger.js"></script>
 ```
 
-Add code to top of main js file to avoid error when you dont include debbuger files in production version.
+Add code before your js files to avoid error when you dont include debbuger files in production version.
 
 ``` js
-    if(typeof DEBUGGER == "undefined") DEBUGGER = {call: function(){},addMethod: function(){}};
+    if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
 ```
 
 ## Run debbuger method
 ```js
-  DEBUGGER.call(methodName,vars[,moduleName]);
+  DEBUGGER.run(methodName,vars[,moduleName]);
 ```
 Arguments:
 
@@ -28,7 +28,7 @@ Arguments:
 
 Example
 ```js
-  DEBUGGER.call("info","Some message");
+  DEBUGGER.run("info","Some message");
 ```
 
 ## Add methods
@@ -60,7 +60,7 @@ Example:
 
  ...
  
- DEBUGGER.call("log","Some message"); // string "Some message" is added to Vars.default property
+ DEBUGGER.run("log","Some message"); // string "Some message" is added to Vars.default property
 
 ```
 

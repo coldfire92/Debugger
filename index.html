@@ -6,29 +6,27 @@
 <body>
 
 
-<!-- 
+
 <script src="js/debugger.js"></script>		
-<script src="js/methods/deb.messages.js"></script>	
- -->
+<script src="js/methods/deb.Messages.js"></script>	
 
 <!-- 
 	Concat
 -->
 
-<script src="dist/debugger.js"></script>
+<!-- <script src="dist/debugger.js"></script> -->
 
 
 <script type="text/javascript">
 	
-if(typeof DEBUGGER == "undefined") DEBUGGER = {call: function(){},addMethod: function(){}};
+if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
 
 window.onload = function(){
 
-
-	DEBUGGER.call("info","Some message");
-	DEBUGGER.call("warn","Some message");
-	DEBUGGER.call("error","Some message");
-	DEBUGGER.call("log","Some message");
+	DEBUGGER.run("info","Some message");
+	DEBUGGER.run("warn","Some message");
+	DEBUGGER.run("error","Some message");
+	DEBUGGER.run("log","Some message");
 
 	DEBUGGER.showMethods();
 

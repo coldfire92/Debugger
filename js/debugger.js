@@ -1,7 +1,6 @@
+
 /**
- * Debugger for framework
- *  
- * @type {[type]}
+ * Simple modular object to debbug code (ex. showing in console, creating logs etc.)
  */
 DEBUGGER = (function(){
 
@@ -12,11 +11,19 @@ DEBUGGER = (function(){
 	var	methods = {};
 
 
-	/*-----  Utils for methods  ------*/
-	
-	
+	/*-----  Methods available in this object in additionals methods  ------*/
+
 	var utilsMethods = {
 
+
+		/**
+		 * Print messages in console, DOM or log file
+		 * @param  {string} module  module name
+		 * @param  {string} message 
+		 * @param  {string} type    message type {log,warn,info,error}
+		 * @param  {bool} plain   dont print module name
+		 * @return {void}  
+		 */
 		print : function(module, message, type, plain){
 
 			var methods = ["log","warn","info","error"];	
@@ -28,10 +35,20 @@ DEBUGGER = (function(){
 
 			console[type].call(console, messageConsole);
 
-		},
+		}
 
 
-		runMethod: function(moduleName, method, Vars){
+	};
+
+
+	/**
+	 * This is run when user call 'run' mwethod
+	 * @param  {string} moduleName module name
+	 * @param  {string} method    
+	 * @param  {mixed} Vars       
+	 * @return {bool} is test pass
+	 */
+	var runMethod = function(moduleName, method, Vars){
 
 			var varTypesAppropriate = ['string','number','string','function'];
 			
@@ -71,9 +88,6 @@ DEBUGGER = (function(){
 
 			return null;
 
-		},
-
-
 	};
 
 
@@ -105,7 +119,6 @@ DEBUGGER = (function(){
 
     };
 
-
     /**
      * Chech if debugger method return bool
      * @param  {string}  name [description]
@@ -128,12 +141,17 @@ DEBUGGER = (function(){
     };
 
 
-
 	/*-----  Public functions  ------*/
 	
 
 	return {
 
+		/**
+		 * Add new method to debbuger
+		 * @param {string} name   
+		 * @param {function} method 
+		 * @param {array} vars required vars in method
+		 */
 		addMethod: function(name, method, vars){
 
 			methods[name] = {
@@ -145,6 +163,10 @@ DEBUGGER = (function(){
 
 		},
 
+		/**
+		 * Show all available methods
+		 * @return {void} 
+		 */
 		showMethods: function(){
 
 			
@@ -153,11 +175,18 @@ DEBUGGER = (function(){
 			
 		},
 
-		call: function(method, Vars, moduleName){
+		/**
+		 * Run method
+		 * @param  {string} method     
+		 * @param  {mixed} Vars       
+		 * @param  {string} moduleName use to print moduleName in conole or in log file
+		 * @return {bool} return from mehod, is pass test or now      
+		 */
+		run: function(method, Vars, moduleName){
 
 			moduleName = moduleName || "main";
 
-			return utilsMethods.runMethod(moduleName, method, Vars);
+			return runMethod(moduleName, method, Vars);
 		
 
 		}
