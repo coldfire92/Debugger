@@ -1,0 +1,4 @@
+{
+	"title" : "Debugger",
+	"desc" : "<p>Simple modular object to debbug code (e.g. showing in console, creating logs etc.)</p>"
+}
