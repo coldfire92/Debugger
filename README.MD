@@ -114,12 +114,14 @@ List of methods:
 
 | Method | Arguments | Description
 |--------|-------------|-------------
-| `log` | `string` | Show log in console | 
-| `error` | `string` | Show error in console
-| `warn` | `string` | Show warn in console
-| `info` | `string` | Show info in console
-| `startTimer` | `string` | Start timer with passed id
-| `stopTimer` | `string` | Stop timer with passed id and return time in ms
+| `log` | `message`(string) | Show log in console | 
+| `error` | `message`(string) | Show error in console
+| `warn` | `message`(string) | Show warn in console
+| `info` | `message`(string) | Show info in console
+| `startTimer` | `id`(string) | Start timer with passed id
+| `stopTimer` | `id`(string) | Stop timer with passed id and return time in ms
+| `isLibrary` | `Library`(string) | Check if in global scobed is attached library
+
 ## To do
 - Add debugger method where you can show messages, errors etc... Now you must open console.
 - Add method setConfig which you can set if message shoud show in console or in bar.

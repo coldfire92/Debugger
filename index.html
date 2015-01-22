@@ -10,6 +10,7 @@
 <script src="js/debugger.js"></script>		
 <script src="js/methods/deb.Messages.js"></script>	
 <script src="js/methods/deb.Timers.js"></script>	
+<script src="js/methods/deb.isLibrary.js"></script>	
 
 <!-- 
 	Concat
@@ -19,6 +20,8 @@
 
 
 <script type="text/javascript">
+
+window.LibraryTest = {};
 	
 if(typeof DEBUGGER == "undefined") DEBUGGER = {run: function(){},addMethod: function(){}};
 
@@ -32,6 +35,12 @@ window.onload = function(){
 	DEBUGGER.showMethods();
 
 	DEBUGGER.run("startTimer","id1");
+
+
+	console.log(DEBUGGER.run("isLibrary", {
+		Library : "LibraryTest"
+	}));
+	
 
 	setTimeout(function(){
 
