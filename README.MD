@@ -120,7 +120,7 @@ List of methods:
 | `info` | `message`(string) | Show info in console
 | `startTimer` | `id`(string) | Start timer with passed id
 | `stopTimer` | `id`(string) | Stop timer with passed id and return time in ms
-| `isLibrary` | `Library`(string) | Check if in global scobed is attached library
+| `isLibrary` | `Library`(string) | Check if in global scobe is attached library
 
 ## To do
 - Add debugger method where you can show messages, errors etc... Now you must open console.
