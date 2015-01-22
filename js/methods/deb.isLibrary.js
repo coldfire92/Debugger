@@ -5,6 +5,11 @@
  */
  DEBUGGER.addMethod("isLibrary", function(Vars){
      
-      return (typeof window[Vars.Library] !== "undefined") ? true : false;
+       if(typeof window[Vars.Library] !== "undefined") return true;
+
+       	this.print("isLibrary", "You dont include "+Vars.Library+" library", "error");
+       	
+       	return false;
+        
 
 },["Library"]);
