@@ -1,11 +1,13 @@
+/* global DEBUGGER */ 
 
 /**
  * Log some message
  */
-DEBUGGER.addMethod("log", function(Vars){
+DEBUGGER.addMethod('log', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "log");
+	this.print(Vars.moduleNameCall, Vars.default, 'log');
 	return true;
 	
 
@@ -15,10 +17,11 @@ DEBUGGER.addMethod("log", function(Vars){
 /**
  * Warn some message
  */
-DEBUGGER.addMethod("warn", function(Vars){
+DEBUGGER.addMethod('warn', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "warn");
+	this.print(Vars.moduleNameCall, Vars.default, 'warn');
 	return true;
 	
 
@@ -27,10 +30,11 @@ DEBUGGER.addMethod("warn", function(Vars){
 /**
  * Show error message
  */
-DEBUGGER.addMethod("error", function(Vars){
+DEBUGGER.addMethod('error', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "error");
+	this.print(Vars.moduleNameCall, Vars.default, 'error');
 	return true;
 	
 
@@ -40,10 +44,11 @@ DEBUGGER.addMethod("error", function(Vars){
 /**
  * Info some message
  */
-DEBUGGER.addMethod("info", function(Vars){
+DEBUGGER.addMethod('info', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "info");
+	this.print(Vars.moduleNameCall, Vars.default, 'info');
 	return true;
 	
 });

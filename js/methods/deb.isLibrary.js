@@ -1,15 +1,19 @@
+/* global DEBUGGER */ 
+
 /**
  * test if file with current library added
  * @param  {string} Library
  * @return {void} 
  */
- DEBUGGER.addMethod("isLibrary", function(Vars){
+ DEBUGGER.addMethod('isLibrary', function(Vars){
      
-       if(typeof window[Vars.Library] !== "undefined") return true;
+ 	'use strict';
 
-       	this.print("isLibrary", "You dont include "+Vars.Library+" library", "error");
-       	
-       	return false;
-        
+    if(typeof window[Vars.Library] !== 'undefined') return true;
 
-},["Library"]);
+   	this.print('isLibrary', 'You dont include '+Vars.Library+' library', 'error');
+   	
+   	return false;
+    
+    
+},['Library']);

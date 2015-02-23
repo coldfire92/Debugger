@@ -2,9 +2,9 @@
 /**
  * Simple modular object to debbug code (ex. showing in console, creating logs etc.)
  */
-DEBUGGER = (function(){
+window.DEBUGGER = (function(){
 
-	"use strict";
+	'use strict';
 		
 	/*-----  Vars  ------*/
 	
@@ -27,12 +27,12 @@ DEBUGGER = (function(){
 		 */
 		print : function(module, message, type, plain){
 
-			var methods = ["log","warn","info","error"];	
+			var methods = ['log','warn','info','error'];	
 			plain = plain || false;
 
-			type = (type || methods.indexOf(type) == -1) ? type : "log";
+			type = (type && methods.indexOf(type) !== -1) ? type : 'log';
 
-			var messageConsole = (!plain) ? (module + "| " + message) : message;
+			var messageConsole = (!plain) ? (module + '| ' + message) : message;
 
 			console[type].call(console, messageConsole);
 
@@ -52,13 +52,13 @@ DEBUGGER = (function(){
 
 
 			if(!key){
-				this.print(methodName, "You try set object but you not apply 'key' argument", "warn");
+				this.print(methodName, 'You try set object but you not apply \'key\' argument', 'warn');
 				return false;
 			}
 
 
 			if(!object){
-				this.print(methodName, "You try set object in "+key+" key but not apply 'object argument'", "warn");
+				this.print(methodName, 'You try set object in '+key+' key but not apply \'object argument\'', 'warn');
 				return false;
 			}
 
@@ -79,7 +79,7 @@ DEBUGGER = (function(){
 			methodName = methodName || 'Debugger:deleteObject';
 
 			if(!key){
-				this.print(methodName, "You try delete object but you not apply 'key' argument", "warn");
+				this.print(methodName, 'You try delete object but you not apply \'key\' argument', 'warn');
 				return false;
 			}
 
@@ -100,7 +100,7 @@ DEBUGGER = (function(){
 			methodName = methodName || 'Debugger:getObject';
 
 			if(!objects[key]){
-				this.print(methodName, "It`s not exist object with '"+key+"' key", "warn");
+				this.print(methodName, 'It`s not exist object with \''+key+'\' key', 'warn');
 
 				return null;
 			}
@@ -129,16 +129,16 @@ DEBUGGER = (function(){
 				Vars = newVar;
 			}
 
-			if(typeof methods[method] == "undefined"){
+			if(typeof methods[method] === 'undefined'){
 
-				utilsMethods.print(moduleName, "Can`t call debugger method: " + method + "", "warn");
+				utilsMethods.print(moduleName, 'Can`t call debugger method: ' + method + '', 'warn');
 				return null;
 
 			}
 
 			/*-----  Filter vars  ------*/
 			
-			if(typeof Vars != "undefined"){
+			if(typeof Vars !== 'undefined'){
 
 				Vars.moduleNameCall = moduleName; //  add which module call method
 
@@ -172,14 +172,14 @@ DEBUGGER = (function(){
 
     	var ret = true;
 
-    	requiredVars = requiredVars || ["default"]; // if not specify required Vars, required only default
+    	requiredVars = requiredVars || ['default']; // if not specify required Vars, required only default
 
 
     	[].forEach.call(requiredVars, function(cur_var){
     	
-    		if(typeof Vars[cur_var] == "undefined"){
+    		if(typeof Vars[cur_var] === 'undefined'){
 
-    			utilsMethods.print("Debugger:methods", "You dont pass '" + cur_var + "' argument to debugger method '" + methodName + "'", "warn");
+    			utilsMethods.print('Debugger:methods', 'You dont pass \'' + cur_var + '\' argument to debugger method \'' + methodName + '\'', 'warn');
     			ret = false;
     			return;
     		}
@@ -199,9 +199,9 @@ DEBUGGER = (function(){
     var isMethotReturnBool = function(methodName, ret){
 
 
-    	if(typeof ret == "undefined"){
+    	if(typeof ret === 'undefined'){
 
-    		utilsMethods.print("Debugger:isMethotReturnBool", "Debugger Method '"+methodName+"' dont return bool","warn");
+    		utilsMethods.print('Debugger:isMethotReturnBool', 'Debugger Method \''+methodName+'\' dont return bool','warn');
 
     		return true;
     	}
@@ -241,7 +241,7 @@ DEBUGGER = (function(){
 		showMethods: function(){
 
 			
-			utilsMethods.print("debugger", methods, "log", true);
+			utilsMethods.print('debugger', methods, 'log', true);
 
 			
 		},
@@ -255,7 +255,7 @@ DEBUGGER = (function(){
 		 */
 		run: function(method, Vars, moduleName){
 
-			moduleName = moduleName || "main";
+			moduleName = moduleName || 'main';
 
 			return runMethod(moduleName, method, Vars);
 		
@@ -266,14 +266,16 @@ DEBUGGER = (function(){
 
 
 })();
+/* global DEBUGGER */ 
 
 /**
  * Log some message
  */
-DEBUGGER.addMethod("log", function(Vars){
+DEBUGGER.addMethod('log', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "log");
+	this.print(Vars.moduleNameCall, Vars.default, 'log');
 	return true;
 	
 
@@ -283,10 +285,11 @@ DEBUGGER.addMethod("log", function(Vars){
 /**
  * Warn some message
  */
-DEBUGGER.addMethod("warn", function(Vars){
+DEBUGGER.addMethod('warn', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "warn");
+	this.print(Vars.moduleNameCall, Vars.default, 'warn');
 	return true;
 	
 
@@ -295,10 +298,11 @@ DEBUGGER.addMethod("warn", function(Vars){
 /**
  * Show error message
  */
-DEBUGGER.addMethod("error", function(Vars){
+DEBUGGER.addMethod('error', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "error");
+	this.print(Vars.moduleNameCall, Vars.default, 'error');
 	return true;
 	
 
@@ -308,20 +312,24 @@ DEBUGGER.addMethod("error", function(Vars){
 /**
  * Info some message
  */
-DEBUGGER.addMethod("info", function(Vars){
+DEBUGGER.addMethod('info', function(Vars){
 
+	'use strict';
 
-	this.print(Vars.moduleNameCall, Vars.default, "info");
+	this.print(Vars.moduleNameCall, Vars.default, 'info');
 	return true;
 	
 });
- 
+/* global DEBUGGER */ 
+
 /**
  * start timer count
  * @param  {string} id
  * @return {void} 
  */
- DEBUGGER.addMethod("startTimer", function(Vars){
+ DEBUGGER.addMethod('startTimer', function(Vars){
+
+ 	'use strict';
 
       var date = new Date().valueOf();
 
@@ -337,7 +345,9 @@ DEBUGGER.addMethod("info", function(Vars){
  * @param  {string} key
  * @return {string} get time with ms ex. 500ms  
  */
-DEBUGGER.addMethod("stopTimer", function(Vars){
+DEBUGGER.addMethod('stopTimer', function(Vars){
+
+ 	'use strict';
 
 	var time = new Date().valueOf() - this.getObject(Vars.default);
 
@@ -346,18 +356,22 @@ DEBUGGER.addMethod("stopTimer", function(Vars){
     return time + 'ms'; 
 
 });
+/* global DEBUGGER */ 
+
 /**
  * test if file with current library added
  * @param  {string} Library
  * @return {void} 
  */
- DEBUGGER.addMethod("isLibrary", function(Vars){
+ DEBUGGER.addMethod('isLibrary', function(Vars){
      
-       if(typeof window[Vars.Library] !== "undefined") return true;
+ 	'use strict';
 
-       	this.print("isLibrary", "You dont include "+Vars.Library+" library", "error");
-       	
-       	return false;
-        
+    if(typeof window[Vars.Library] !== 'undefined') return true;
 
-},["Library"]);
+   	this.print('isLibrary', 'You dont include '+Vars.Library+' library', 'error');
+   	
+   	return false;
+    
+    
+},['Library']);
